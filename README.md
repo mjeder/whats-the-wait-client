@@ -2,7 +2,7 @@
 
 # whats-the-wait-client
 
-A front-end framework template for starting projects with a recent version of
+A front-endframework template for starting projects with a recent version of
 either the [Rails API Template](https://git.generalassemb.ly/ga-wdi-boston/rails-api-template)
 or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template).
 
