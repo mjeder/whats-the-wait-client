@@ -13,6 +13,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // Waitlist
 import WaitlistCreate from './components/WaitlistCreate/WaitlistCreate'
 import WaitlistShow from './components/WaitlistShow/WaitlistShow'
+import WaitlistIndex from './components/WaitlistIndex/WaitlistIndex'
 
 class App extends Component {
   constructor (props) {
@@ -78,8 +79,12 @@ class App extends Component {
             <WaitlistCreate msgAlert={this.msgAlert} user={user} />
           )} />
           {/* WAITLIST - SHOW */}
-          <AuthenticatedRoute user={user} path='/waitlists/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/waitlists/:id' render={() => (
             <WaitlistShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - INDEX */}
+          <AuthenticatedRoute user={user} exact path='/waitlists' render={() => (
+            <WaitlistIndex msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
