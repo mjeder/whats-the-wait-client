@@ -17,9 +17,9 @@ class WaitlistShow extends Component {
     }
   }
   componentDidMount () {
-    const { match, msgAlert } = this.props
+    const { user, match, msgAlert } = this.props
 
-    waitlistShow(match.params.id)
+    waitlistShow(match.params.id, user)
       .then(res => this.setState({ waitlist: res.data.waitlist }))
       .then(() => msgAlert({
         heading: 'Waitlist Fetched Succesfully',
@@ -52,7 +52,7 @@ class WaitlistShow extends Component {
       })
   }
   render () {
-    const { waitlist, name, deleted } = this.state
+    const { waitlist, deleted } = this.state
     if (!waitlist) {
       return (
         <Spinner animation="border" role="status">
@@ -61,24 +61,23 @@ class WaitlistShow extends Component {
       )
     }
     if (deleted) {
-      return <Redirect to="/" />
+      return <Redirect to="/waitlists" />
     }
     const guestJsx = waitlist.guests.map(guest => (
-      <div key={guest.guest}>
-        <li>{guest.guest}</li>
+      <div key={waitlist.guest}>
+        <li>{waitlist.guest}</li>
       </div>
     ))
     return (
       <div>
-        <h3>{name}</h3>
-        <h4>WaitlistID: {waitlist._id}</h4>
-        <h4>Response: {guestJsx} </h4>
+        <h3>{waitlist.name}</h3>
         <Button onClick={this.handleDelete}>Delete Waitlist</Button>
         <Link to={`/waitlists/${waitlist._id}/edit`}>
-          <Button renderAs='button'>
+          <Button renderas='button'>
             Edit Waitlist
           </Button>
         </Link>
+        <p>{guestJsx}</p>
       </div>
     )
   }
