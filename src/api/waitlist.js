@@ -19,7 +19,10 @@ export const waitlistCreate = (waitlist, user) => {
 export const waitlistShow = (id, user) => {
   return axios({
     url: apiUrl + '/waitlists/' + id,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
   })
 }
 
