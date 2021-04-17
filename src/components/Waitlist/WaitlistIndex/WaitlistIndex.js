@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Table from 'react-bootstrap/Table'
-// import Button from 'react-bootstrap/Button'
-// import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-import WaitlistRow from '../WaitlistRow/WaitlistRow'
+import Moment from 'react-moment'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 import { waitlistIndex } from '../../../api/waitlist'
 
 class WaitlistIndex extends Component {
@@ -37,34 +37,42 @@ class WaitlistIndex extends Component {
   render () {
     let waitlistJsx
     const { waitlists } = this.state
-
-    if (this.state.waitlists === null) {
+    if (!waitlists) {
       return (
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
       )
     } else {
-      waitlistJsx = waitlists.map(waitlist => (
-        <tbody key={waitlist._id}>
-          <tr>
-            <WaitlistRow
-              name={waitlist.name}
-              createdAt={waitlist.createdAt}/>
-          </tr>
-        </tbody>
-      ))
+      waitlistJsx = (
+        waitlists.map(waitlist => (
+          <Fragment key={waitlist._id}>
+            <tr>
+              <td>{waitlist.name}</td>
+              <td><Moment format='MM-DD-YYYY'>{waitlist.createdAt}</Moment></td>
+              <td>
+                <Link to={`/waitlists/${waitlist._id}`} key={waitlist._id}>
+                  <Button variant="outline-success">View</Button>
+                </Link>
+              </td>
+            </tr>
+          </Fragment>
+        ))
+      )
     }
 
     return (
-      <Table striped bordered hover className="text-center">
+      <Table striped bordered hover className="text-center mt-5">
         <thead>
           <tr>
             <th>Name</th>
             <th>Created On</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        {waitlistJsx}
+        <tbody>
+          {waitlistJsx}
+        </tbody>
       </Table>
     )
   }
