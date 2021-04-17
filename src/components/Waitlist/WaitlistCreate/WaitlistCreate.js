@@ -51,14 +51,15 @@ class WaitlistCreate extends Component {
   render () {
     const { name, waitlistId } = this.state
     if (waitlistId) {
-      return <Redirect to={`/waitlists/${waitlistId}`} />
+      return <Redirect to={'/waitlists'} />
     }
     return (
       <div>
-        <h3>Create Waitlist</h3>
+        <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+        <h5 className="text-center mb-4">Create a Waitlist</h5>
         <WaitlistForm
           name={name}
-          placeholder="ex. 'Friday 4/16' or 'Fathers Day'"
+          placeholder="ex. 'Friday PM' or 'Father&apos;s Day'"
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />

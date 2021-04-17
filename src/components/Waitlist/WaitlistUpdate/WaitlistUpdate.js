@@ -65,7 +65,7 @@ class WaitlistUpdate extends Component {
   }
 
   render () {
-    const { waitlist, match, updated } = this.state
+    const { waitlist, updated } = this.state
     if (!waitlist) {
       return (
         <Spinner animation="border" role="status">
@@ -75,12 +75,13 @@ class WaitlistUpdate extends Component {
     }
 
     if (updated) {
-      return <Redirect to={`/waitlists/${match.params.id}`} />
+      return <Redirect to={`/waitlists/${this.props.match.id}`} />
     }
 
     return (
       <div>
-        <h3>Edit Waitlist</h3>
+        <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+        <h5 className="text-center mb-4">Edit Waitlist</h5>
         <WaitlistForm
           waitlist={name}
           placeholder={waitlist.name}
