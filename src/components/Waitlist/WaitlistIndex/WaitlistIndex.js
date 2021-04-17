@@ -46,7 +46,7 @@ class WaitlistIndex extends Component {
       )
     } else {
       waitlistJsx = waitlists.map(waitlist => (
-        <tbody key={waitlist.id.toString()}>
+        <tbody key={waitlist._id}>
           <tr>
             <WaitlistRow
               name={waitlist.name}
