@@ -6,14 +6,15 @@ import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRou
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
 // Auth
-import SignUp from './components/SignUp/SignUp'
-import SignIn from './components/SignIn/SignIn'
-import SignOut from './components/SignOut/SignOut'
-import ChangePassword from './components/ChangePassword/ChangePassword'
+import SignUp from './components/Authentication/SignUp/SignUp'
+import SignIn from './components/Authentication/SignIn/SignIn'
+import SignOut from './components/Authentication/SignOut/SignOut'
+import ChangePassword from './components/Authentication/ChangePassword/ChangePassword'
 // Waitlist
-import WaitlistCreate from './components/WaitlistCreate/WaitlistCreate'
-import WaitlistShow from './components/WaitlistShow/WaitlistShow'
-import WaitlistIndex from './components/WaitlistIndex/WaitlistIndex'
+import WaitlistCreate from './components/Waitlist/WaitlistCreate/WaitlistCreate'
+import WaitlistShow from './components/Waitlist/WaitlistShow/WaitlistShow'
+import WaitlistIndex from './components/Waitlist/WaitlistIndex/WaitlistIndex'
+import WaitlistUpdate from './components/Waitlist/WaitlistUpdate/WaitlistUpdate'
 
 class App extends Component {
   constructor (props) {
@@ -85,6 +86,10 @@ class App extends Component {
           {/* WAITLIST - INDEX */}
           <AuthenticatedRoute user={user} exact path='/waitlists' render={() => (
             <WaitlistIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - UPDATE */}
+          <AuthenticatedRoute user={user} path='/waitlists/:id/edit' render={() => (
+            <WaitlistUpdate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
