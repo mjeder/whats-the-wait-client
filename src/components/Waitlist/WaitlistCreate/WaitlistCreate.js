@@ -29,7 +29,7 @@ class WaitlistCreate extends Component {
       .then(res => msgAlert({
         heading: 'Success!',
         message: `${res.data.waitlist.name} waitlist has been created.`,
-        variant: 'success'
+        variant: 'light'
       }))
       .catch(error => {
         msgAlert({

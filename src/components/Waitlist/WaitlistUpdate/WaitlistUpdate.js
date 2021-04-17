@@ -24,7 +24,7 @@ class WaitlistUpdate extends Component {
         msgAlert({
           heading: 'Success!',
           message: `Currently showing ${this.data.waitlist.name}.`,
-          variant: 'success'
+          variant: 'light'
         })
       })
       .catch(error => {
@@ -48,7 +48,7 @@ class WaitlistUpdate extends Component {
         msgAlert({
           heading: 'Success!',
           message: `${this.data.waitlist.name} has been updated.`,
-          variant: 'success'
+          variant: 'light'
         })
       })
       .catch(error => {

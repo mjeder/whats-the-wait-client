@@ -23,7 +23,7 @@ class WaitlistIndex extends Component {
       .then(() => msgAlert({
         heading: 'Success!',
         message: 'Click on a waitlist to go to its page.',
-        variant: 'success'
+        variant: 'light'
       }))
       .catch(error => {
         msgAlert({
@@ -52,7 +52,7 @@ class WaitlistIndex extends Component {
               <td><Moment format='MM-DD-YYYY'>{waitlist.createdAt}</Moment></td>
               <td>
                 <Link to={`/waitlists/${waitlist._id}`} key={waitlist._id}>
-                  <Button variant="outline-success">View</Button>
+                  <Button variant="outline-success">View Waitlist</Button>
                 </Link>
               </td>
             </tr>
