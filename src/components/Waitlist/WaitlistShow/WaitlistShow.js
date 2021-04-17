@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 import { withRouter, Redirect, Link } from 'react-router-dom'
-// import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 import Moment from 'react-moment'
 import Image from 'react-bootstrap/Image'
@@ -74,7 +74,7 @@ class WaitlistShow extends Component {
               <td>{guest.count}</td>
               <td>{guest.notes}</td>
               <td>{guest.quote}</td>
-              <td>{guest.table}</td>
+              <td><Moment fromNow ago>{guest.createdAt}</Moment></td>
               <td>
                 <Link to={`/guests/${waitlist._id}/${guest._id}`} key={guest._id}>
                   <Image
@@ -115,24 +115,34 @@ class WaitlistShow extends Component {
     }
 
     return (
-      <Table striped bordered hover className="text-center mt-5">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Added</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Guests</th>
-            <th>Notes</th>
-            <th>Quote</th>
-            <th>Table</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {guestJsx}
-        </tbody>
-      </Table>
+      <div className="row text-center">
+        <div>
+          <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+          <h3 className="text-center mt-2 mb-3">{waitlist.name}</h3>
+          <Link to={`/waitlists/${waitlist._id}/edit`}>
+            <Button className="mr-4" variant="outline-primary">Update Waitlist</Button>
+          </Link>
+          <Button variant="outline-danger" onClick={this.handleDelete}>Delete Waitlist</Button>
+          <Table striped bordered hover className="text-center mt-3">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Added</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Guests</th>
+                <th>Notes</th>
+                <th>Quote</th>
+                <th>Wait</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {guestJsx}
+            </tbody>
+          </Table>
+        </div>
+      </div>
     )
   }
 }
