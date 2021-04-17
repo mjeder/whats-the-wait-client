@@ -32,7 +32,7 @@ class SignIn extends Component {
       .then(() => msgAlert({
         heading: 'Success!',
         message: messages.signInSuccess,
-        variant: 'success'
+        variant: 'light'
       }))
       .then(() => history.push('/'))
       .catch(error => {
