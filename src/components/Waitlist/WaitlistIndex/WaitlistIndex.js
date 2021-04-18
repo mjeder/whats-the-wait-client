@@ -22,7 +22,7 @@ class WaitlistIndex extends Component {
       .then(res => this.setState({ waitlists: res.data.waitlists }))
       .then(() => msgAlert({
         heading: 'Success!',
-        message: 'Click on a waitlist to go to its page.',
+        message: 'Click on a waitlist to go to its page OR Create one above!',
         variant: 'light'
       }))
       .catch(error => {
@@ -37,6 +37,7 @@ class WaitlistIndex extends Component {
   render () {
     let waitlistJsx
     const { waitlists } = this.state
+    const { user } = this.props
     if (!waitlists) {
       return (
         <Spinner animation="border" role="status">
@@ -62,18 +63,27 @@ class WaitlistIndex extends Component {
     }
 
     return (
-      <Table striped bordered hover className="text-center mt-5">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Created On</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {waitlistJsx}
-        </tbody>
-      </Table>
+      <div className="text-center">
+        <div>
+          <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+          <h4 className="text-center mt-4 mb-3">{user.restaurant}</h4>
+          <Link to={'/create-waitlist'}>
+            <Button variant="outline-success">Create Waitlist</Button>
+          </Link>
+          <Table striped bordered hover className="text-center mt-4">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Created On</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {waitlistJsx}
+            </tbody>
+          </Table>
+        </div>
+      </div>
     )
   }
 }

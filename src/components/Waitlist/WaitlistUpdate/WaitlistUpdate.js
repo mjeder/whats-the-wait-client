@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, withRouter } from 'react-router-dom'
-
 import { waitlistShow, waitlistUpdate } from '../../../api/waitlist'
-
-import WaitlistForm from '../WaitlistForm/WaitlistForm'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+// import WaitlistForm from '../WaitlistForm/WaitlistForm'
 
 class WaitlistUpdate extends Component {
   constructor () {
@@ -23,7 +24,7 @@ class WaitlistUpdate extends Component {
       .then(() => {
         msgAlert({
           heading: 'Success!',
-          message: `Currently showing ${this.data.waitlist.name}.`,
+          message: 'You may now edit this waitlist.',
           variant: 'light'
         })
       })
@@ -47,7 +48,7 @@ class WaitlistUpdate extends Component {
       .then(() => {
         msgAlert({
           heading: 'Success!',
-          message: `${this.data.waitlist.name} has been updated.`,
+          message: 'Waitlist has been updated.',
           variant: 'light'
         })
       })
@@ -65,7 +66,7 @@ class WaitlistUpdate extends Component {
   }
 
   render () {
-    const { waitlist, updated } = this.state
+    const { waitlist, name, updated } = this.state
     if (!waitlist) {
       return (
         <Spinner animation="border" role="status">
@@ -75,19 +76,35 @@ class WaitlistUpdate extends Component {
     }
 
     if (updated) {
-      return <Redirect to={`/waitlists/${this.props.match.id}`} />
+      return <Redirect to={`/waitlists/${this.props.match.params.id}`} />
     }
 
     return (
-      <div>
-        <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
-        <h5 className="text-center mb-4">Edit Waitlist</h5>
-        <WaitlistForm
-          waitlist={name}
-          placeholder={waitlist.name}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
+      <div className="row">
+        <div className="col-sm-10 col-md-8 mx-auto ">
+          <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+          <h5 className="text-center mb-4">Edit Waitlist</h5>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Row className="mb-3">
+              <Form.Group as={Col} controlId="name" className="mr-3">
+                <Form.Label>Waitlist Name</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  name="name"
+                  value={name}
+                  placeholder={waitlist.name}
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+            </Form.Row>
+            <div className="text-center mt-5=3">
+              <Button className="text-center" size="lg" variant="primary" type="submit">
+              Submit
+              </Button>
+            </div>
+          </Form>
+        </div>
       </div>
     )
   }

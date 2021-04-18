@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 
-const WaitlistForm = ({ name, placeholder, handleSubmit, handleChange }) => (
+const WaitlistForm = ({ waitlist, placeholder, handleSubmit, handleChange }) => (
   <div className="row">
     <div className="col-sm-10 col-md-8 mx-auto ">
       <Form onSubmit={handleSubmit}>
@@ -14,7 +14,7 @@ const WaitlistForm = ({ name, placeholder, handleSubmit, handleChange }) => (
               required
               type="text"
               name="name"
-              value={name}
+              value={waitlist.name}
               placeholder={placeholder}
               onChange={handleChange}
             />

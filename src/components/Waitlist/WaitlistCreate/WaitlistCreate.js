@@ -15,6 +15,7 @@ class WaitlistCreate extends Component {
       waitlistId: null
     }
   }
+
   handleSubmit = event => {
     event.preventDefault()
 
@@ -39,6 +40,7 @@ class WaitlistCreate extends Component {
         })
       })
   }
+
   handleChange = event => {
     event.persist()
 
@@ -48,8 +50,9 @@ class WaitlistCreate extends Component {
       }
     })
   }
+
   render () {
-    const { name, waitlistId } = this.state
+    const { waitlist, waitlistId } = this.state
     if (waitlistId) {
       return <Redirect to={'/waitlists'} />
     }
@@ -58,7 +61,7 @@ class WaitlistCreate extends Component {
         <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
         <h5 className="text-center mb-4">Create a Waitlist</h5>
         <WaitlistForm
-          name={name}
+          waitlist={waitlist}
           placeholder="ex. 'Friday PM' or 'Father&apos;s Day'"
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

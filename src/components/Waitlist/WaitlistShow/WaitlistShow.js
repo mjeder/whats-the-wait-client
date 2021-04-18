@@ -25,6 +25,7 @@ class WaitlistShow extends Component {
       .then(res => this.setState({ waitlist: res.data.waitlist }))
       .then(() => msgAlert({
         heading: 'Success!',
+        messsage: 'Now showing selected waitlist.',
         variant: 'light'
       }))
       .catch(error => {
@@ -119,8 +120,11 @@ class WaitlistShow extends Component {
         <div>
           <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
           <h3 className="text-center mt-2 mb-3">{waitlist.name}</h3>
+          <Link to={'#'}>
+            <Button className="mr-4" variant="outline-success">Add Guest</Button>
+          </Link>
           <Link to={`/waitlists/${waitlist._id}/edit`}>
-            <Button className="mr-4" variant="outline-primary">Update Waitlist</Button>
+            <Button className="mr-4" variant="outline-primary">Edit Waitlist</Button>
           </Link>
           <Button variant="outline-danger" onClick={this.handleDelete}>Delete Waitlist</Button>
           <Table striped bordered hover className="text-center mt-3">
