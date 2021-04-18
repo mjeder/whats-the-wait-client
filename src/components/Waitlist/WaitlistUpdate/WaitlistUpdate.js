@@ -43,7 +43,7 @@ class WaitlistUpdate extends Component {
     const { user, match, msgAlert } = this.props
     const { waitlist } = this.state
 
-    waitlistUpdate(match.params.id, waitlist, user)
+    waitlistUpdate(waitlist, match.params.id, user)
       .then(res => this.setState({ updated: true }))
       .then(() => {
         msgAlert({
