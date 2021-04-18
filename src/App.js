@@ -15,6 +15,8 @@ import WaitlistCreate from './components/Waitlist/WaitlistCreate/WaitlistCreate'
 import WaitlistShow from './components/Waitlist/WaitlistShow/WaitlistShow'
 import WaitlistIndex from './components/Waitlist/WaitlistIndex/WaitlistIndex'
 import WaitlistUpdate from './components/Waitlist/WaitlistUpdate/WaitlistUpdate'
+// Guest
+import GuestCreate from './components/Guest/GuestCreate/GuestCreate'
 
 class App extends Component {
   constructor (props) {
@@ -88,8 +90,12 @@ class App extends Component {
             <WaitlistIndex msgAlert={this.msgAlert} user={user} />
           )} />
           {/* WAITLIST - UPDATE */}
-          <AuthenticatedRoute user={user} path='/waitlists/:id/edit' render={() => (
+          <AuthenticatedRoute user={user} exact path='/waitlists/:id/edit' render={() => (
             <WaitlistUpdate msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* GUEST - CREATE */}
+          <AuthenticatedRoute user={user} path='/guests/:waitlistId/create-guest' render={() => (
+            <GuestCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
