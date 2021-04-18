@@ -117,10 +117,10 @@ class WaitlistShow extends Component {
 
     return (
       <div className="row text-center">
-        <div>
+        <div className="col-sm-12 mx-auto">
           <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
           <h3 className="text-center mt-2 mb-3">{waitlist.name}</h3>
-          <Link to={'#'}>
+          <Link to={`/guests/${waitlist._id}/create-guest`}>
             <Button className="mr-4" variant="outline-success">Add Guest</Button>
           </Link>
           <Link to={`/waitlists/${waitlist._id}/edit`}>
