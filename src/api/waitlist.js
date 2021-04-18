@@ -8,11 +8,7 @@ export const waitlistCreate = (waitlist, user) => {
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: {
-      waitlist: {
-        name: waitlist.name
-      }
-    }
+    data: { waitlist }
   })
 }
 
@@ -43,11 +39,7 @@ export const waitlistUpdate = (waitlist, id, user) => {
     headers: {
       'Authorization': `Bearer ${user.token}`
     },
-    data: {
-      waitlist: {
-        name: waitlist.name
-      }
-    }
+    data: { waitlist }
   })
 }
 
