@@ -79,16 +79,25 @@ Guest Management
 - As a signed in user, I would like to delete my guests. (D)
 ___
 ## Technologies Used
-- React
+#### General Development
+- Javascript
 - CSS
-- Bootstrap
-- JavaScript
-- Node.js
+- SCSS
+- GitHub
+- Git
+- Atom
+
+#### Client Development
+- React
+- React-Bootstrap
+
+#### API Development
 - Express
 - MongoDB
-- Mongoose
+
+#### Deployment
 - Heroku
-- Ajax (Axios)
+- GH Pages
 ___
 ## Unsolved Problems
 - [ ] Currently I am unable to deploy my application on GH pages. Working on fixing that ASAP.
