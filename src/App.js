@@ -5,10 +5,18 @@ import { v4 as uuid } from 'uuid'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
-import SignUp from './components/SignUp/SignUp'
-import SignIn from './components/SignIn/SignIn'
-import SignOut from './components/SignOut/SignOut'
-import ChangePassword from './components/ChangePassword/ChangePassword'
+// Auth
+import SignUp from './components/Authentication/SignUp/SignUp'
+import SignIn from './components/Authentication/SignIn/SignIn'
+import SignOut from './components/Authentication/SignOut/SignOut'
+import ChangePassword from './components/Authentication/ChangePassword/ChangePassword'
+// Waitlist
+import WaitlistCreate from './components/Waitlist/WaitlistCreate/WaitlistCreate'
+import WaitlistShow from './components/Waitlist/WaitlistShow/WaitlistShow'
+import WaitlistIndex from './components/Waitlist/WaitlistIndex/WaitlistIndex'
+import WaitlistUpdate from './components/Waitlist/WaitlistUpdate/WaitlistUpdate'
+// Guest
+import GuestCreate from './components/Guest/GuestCreate/GuestCreate'
 
 class App extends Component {
   constructor (props) {
@@ -53,17 +61,41 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          {/* SIGN UP */}
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
+          {/* SIGN IN */}
           <Route path='/sign-in' render={() => (
             <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
+          {/* SIGN OUT */}
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
           )} />
+          {/* CHANGE PASSWORD */}
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - CREATE */}
+          <AuthenticatedRoute user={user} path='/create-waitlist' render={() => (
+            <WaitlistCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - SHOW */}
+          <AuthenticatedRoute user={user} exact path='/waitlists/:id' render={() => (
+            <WaitlistShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - INDEX */}
+          <AuthenticatedRoute user={user} exact path='/waitlists' render={() => (
+            <WaitlistIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* WAITLIST - UPDATE */}
+          <AuthenticatedRoute user={user} exact path='/waitlists/:id/edit' render={() => (
+            <WaitlistUpdate msgAlert={this.msgAlert} user={user} />
+          )} />
+          {/* GUEST - CREATE */}
+          <AuthenticatedRoute user={user} path='/guests/:waitlistId/create-guest' render={() => (
+            <GuestCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

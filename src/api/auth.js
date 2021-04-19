@@ -8,6 +8,7 @@ export const signUp = credentials => {
     data: {
       credentials: {
         email: credentials.email,
+        restaurant: credentials.restaurant,
         password: credentials.password,
         password_confirmation: credentials.passwordConfirmation
       }
@@ -28,12 +29,12 @@ export const signIn = credentials => {
   })
 }
 
-export const signOut = user => {
+export const signOut = (user) => {
   return axios({
     url: apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     }
   })
 }
@@ -43,7 +44,7 @@ export const changePassword = (passwords, user) => {
     url: apiUrl + '/change-password',
     method: 'PATCH',
     headers: {
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     },
     data: {
       passwords: {
