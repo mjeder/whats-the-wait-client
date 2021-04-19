@@ -1,6 +1,6 @@
 {
   "name": "whats-the-wait-client",
-  "homepage": "https://mjeder.github.io/whats-the-wait-client",
+  "homepage": "https://mjeder.github.io/whats-the-wait-client/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
