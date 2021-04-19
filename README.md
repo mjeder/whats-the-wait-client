@@ -6,7 +6,7 @@ More specifically a user can create a waitlist, view all waitlists that they own
 ___
 ## Important Links
 - [Back End Repo](https://github.com/mjeder/whats-the-wait-api)
-- Deployed Client - link coming soon due to technical difficulties
+- [Deployed Client](https://mjeder.github.io/whats-the-wait-client/)
 - [Deployed API](https://whats-the-wait-api.herokuapp.com/)
 ___
 ## Planning Story
@@ -100,7 +100,6 @@ ___
 - GH Pages
 ___
 ## Unsolved Problems
-- [ ] Currently I am unable to deploy my application on GH pages. Working on fixing that ASAP.
 - [ ] Creating a guest throws an error but still adds the guest to a waitlist on the server side.
 - [ ] Unable to delete a guest.
 - [ ] Unable to edit a guest.
