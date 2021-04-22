@@ -25,7 +25,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar variant="dark" expand="sm" className="nav-bar-font">
-    <Navbar.Brand href="#" class="nav-brand">
+    <Navbar.Brand className="nav-brand">
       <img src='logo1.png'/>
       { user && <span className="navbar-text ml-4">{user.restaurant}</span>}
     </Navbar.Brand>
