@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 import { signIn } from '../../../api/auth'
 import messages from '../../AutoDismissAlert/messages'
@@ -34,7 +34,7 @@ class SignIn extends Component {
         message: messages.signInSuccess,
         variant: 'light'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/waitlists'))
       .catch(error => {
         this.setState({ email: '', password: '' })
         msgAlert({
@@ -84,10 +84,14 @@ class SignIn extends Component {
               </Form.Group>
 
             </Form.Row>
-            <div className="text-center mt-5">
+            <div className="text-center mt-3">
               <Button className="text-center" variant="flat" size="lg" type="submit">
               Log In
               </Button>
+              <h4 className="text-center mt-4 mb-4">- Or -</h4>
+              <Link to={'/sign-up'}>
+                <Button className="text-center" variant="flat" size="lg">Create Account</Button>
+              </Link>
             </div>
           </Form>
         </div>
