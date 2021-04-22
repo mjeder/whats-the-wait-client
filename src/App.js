@@ -17,6 +17,8 @@ import WaitlistIndex from './components/Waitlist/WaitlistIndex/WaitlistIndex'
 import WaitlistUpdate from './components/Waitlist/WaitlistUpdate/WaitlistUpdate'
 // Guest
 import GuestCreate from './components/Guest/GuestCreate/GuestCreate'
+// Home
+import Home from './components/Home/Home'
 
 class App extends Component {
   constructor (props) {
@@ -61,6 +63,10 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          {/* HOME */}
+          <Route exact path='' render={() => (
+            <Home msgAlert={this.msgAlert} />
+          )} />
           {/* SIGN UP */}
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
