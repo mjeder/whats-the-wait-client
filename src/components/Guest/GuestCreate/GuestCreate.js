@@ -61,7 +61,7 @@ class GuestCreate extends Component {
   render () {
     const { guest, guestId } = this.state
     if (guestId) {
-      return <Redirect to={'/waitlists/'} />
+      return <Redirect to={`/waitlists/${this.props.match.params.waitlistId}`} />
     }
     return (
       <div className="row">
