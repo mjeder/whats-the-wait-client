@@ -65,9 +65,11 @@ class GuestCreate extends Component {
     }
     return (
       <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h2 className="text-center">What&apos;s The Wait?</h2>
-          <h5 className="text-center mb-5">Add a Guest</h5>
+        <div className="col-sm-10 col-md-8 mx-auto justify-content">
+          <div>
+            <img src="logo3.png" className="mx-auto d-block mt-4 mb-3"/>
+          </div>
+          <h4 className="text-center mt-3 mb-4">Add Guest To Waitlist</h4>
           <Form onSubmit={this.handleSubmit}>
             <Form.Row className="mb-3">
               <Form.Group as={Col} controlId="name">
@@ -130,7 +132,7 @@ class GuestCreate extends Component {
               </Form.Group>
             </Form.Row>
             <div className="text-center mt-4">
-              <Button className="text-center" size="lg" variant="outline-success" type="submit">Add to Waitlist</Button>
+              <Button className="text-center" size="lg" variant="flat" type="submit">Add to Waitlist</Button>
             </div>
           </Form>
         </div>

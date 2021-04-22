@@ -57,9 +57,11 @@ class WaitlistCreate extends Component {
       return <Redirect to={'/waitlists'} />
     }
     return (
-      <div>
-        <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
-        <h5 className="text-center mb-4">Create a Waitlist</h5>
+      <div className="col-sm-10 col-md-8 mx-auto justify-content">
+        <div>
+          <img src="logo3.png" className="mx-auto d-block mt-4 mb-3"/>
+        </div>
+        <h4 className="text-center mt-4 mb-3">Create Waitlist</h4>
         <WaitlistForm
           waitlist={waitlist}
           placeholder="ex. 'Friday PM' or 'Father&apos;s Day'"

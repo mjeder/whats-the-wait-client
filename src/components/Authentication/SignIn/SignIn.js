@@ -50,9 +50,11 @@ class SignIn extends Component {
 
     return (
       <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h2 className="text-center">What&apos;s The Wait?</h2>
-          <h5 className="text-center mb-5">Account Log In</h5>
+        <div className="col-sm-10 col-md-8 mx-auto mt-5 justify-content">
+          <div>
+            <img src="logo3.png" className="mx-auto d-block mt-4 mb-5"/>
+          </div>
+          <h4 className="text-center mt-3 mb-4">Account Log In</h4>
           <Form onSubmit={this.onSignIn}>
             <Form.Row className="mb-3">
               <Form.Group as={Col} controlId="email" className="mr-3">
@@ -83,7 +85,7 @@ class SignIn extends Component {
 
             </Form.Row>
             <div className="text-center mt-5">
-              <Button className="text-center" size="lg" variant="primary" type="submit">
+              <Button className="text-center" variant="flat" size="lg" type="submit">
               Log In
               </Button>
             </div>

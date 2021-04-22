@@ -64,8 +64,10 @@ class WaitlistIndex extends Component {
 
     return (
       <div className="text-center">
-        <div>
-          <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
+        <div className="col-sm-12 mx-auto">
+          <div>
+            <img src="logo3.png" className="mx-auto d-block mt-4 mb-3"/>
+          </div>
           <h4 className="text-center mt-4 mb-3">{user.restaurant}</h4>
           <Link to={'/create-waitlist'}>
             <Button variant="outline-success">Create Waitlist</Button>

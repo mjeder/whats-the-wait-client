@@ -118,8 +118,10 @@ class WaitlistShow extends Component {
     return (
       <div className="row text-center">
         <div className="col-sm-12 mx-auto">
-          <h2 className="text-center mt-5">What&apos;s The Wait?</h2>
-          <h3 className="text-center mt-2 mb-3">{waitlist.name}</h3>
+          <div>
+            <img src="logo3.png" className="mx-auto d-block mt-4 mb-3"/>
+          </div>
+          <h4 className="text-center mt-3 mb-4">{waitlist.name}</h4>
           <Link to={`/guests/${waitlist._id}/create-guest`}>
             <Button className="mr-4" variant="outline-success">Add Guest</Button>
           </Link>

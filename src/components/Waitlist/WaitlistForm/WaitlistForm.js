@@ -21,7 +21,7 @@ const WaitlistForm = ({ waitlist, placeholder, handleSubmit, handleChange }) => 
           </Form.Group>
         </Form.Row>
         <div className="text-center mt-5=3">
-          <Button className="text-center" size="lg" variant="primary" type="submit">
+          <Button className="text-center" size="lg" variant="flat" type="submit">
           Submit
           </Button>
         </div>

@@ -1,1 +1,50 @@
 @import '~bootstrap/scss/bootstrap';
+
+.nav-bar-font {
+  font-family: 'Bungee', cursive;
+  font-size: 20px;
+  background-color: #264653;
+}
+
+h4 {
+  font-family: 'Bungee', cursive;
+  color: #2a9d8f;
+}
+
+// .btn-p, .btn-p:hover, .btn-p:active, .btn-p:focus, .btn-p:visited {
+//   background-color: #264653;
+//   border-color: #264653;
+// }
+
+.btn-flat, .btn-flat:hover {
+  background-color: #264653;
+  color: white;
+}
+
+.btn-outline-primary {
+  border-color: #264653;
+  color: #264653;
+}
+
+.btn-outline-primary:hover {
+  background-color: #264653;
+  border-color: #264653;
+  color: white;
+}
+
+.btn-outline-success {
+  border-color: #2a9d8f;
+  color: #2a9d8f;
+}
+
+.btn-outline-success:hover {
+  background-color: #2a9d8f;
+  border-color: #2a9d8f;
+  color: white;
+}
+
+#basic-nav-dropdown {
+  background-color:#264653;
+  color: #264653;
+  font-family: 'Bungee', cursive;
+}
